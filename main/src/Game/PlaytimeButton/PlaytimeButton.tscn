@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://becl2rhoitv7f"]
+
+[ext_resource type="Texture2D" uid="uid://dwotoawogt520" path="res://assets/HyperCasual Game UI/blueBtnNormal.png" id="1_t2713"]
+[ext_resource type="Texture2D" uid="uid://djwy8bmmseavi" path="res://assets/HyperCasual Game UI/blueBtnTapped.png" id="2_lf35w"]
+[ext_resource type="Script" path="res://src/Game/PlaytimeButton/PlaytimeButton.gd" id="3_6ws4h"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="4_f8lgt"]
+
+[sub_resource type="Animation" id="Animation_8p4lq"]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_f2tip"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ow0b"]
+_data = {
+"Fade": SubResource("Animation_8p4lq"),
+"RESET": SubResource("Animation_f2tip")
+}
+
+[node name="PlaytimeButton" type="TextureButton"]
+texture_normal = ExtResource("1_t2713")
+texture_pressed = ExtResource("2_lf35w")
+script = ExtResource("3_6ws4h")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_f8lgt")
+theme_override_font_sizes/font_size = 72
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ow0b")
+}
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

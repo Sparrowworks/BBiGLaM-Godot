@@ -1,0 +1,802 @@
+[gd_scene load_steps=18 format=3 uid="uid://bob02xmypg1jc"]
+
+[ext_resource type="Texture2D" uid="uid://ciufwopwgucmw" path="res://assets/HyperCasual Game UI/BG.png" id="1_3kp02"]
+[ext_resource type="Script" path="res://src/LevelSelect/LevelSelect.gd" id="1_dtwy2"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="2_uc720"]
+[ext_resource type="Texture2D" uid="uid://y33cje4ffsjy" path="res://assets/Items/QuarterIcon_Large.webp" id="3_spki7"]
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="4_rbwfd"]
+[ext_resource type="Texture2D" uid="uid://bwjen8gnjycs" path="res://assets/HyperCasual Game UI/blueRectNormal.png" id="5_7elsl"]
+[ext_resource type="PackedScene" uid="uid://bybqmn8dukx7m" path="res://src/Store/ItemSlot/ItemSlot.tscn" id="5_juw6a"]
+[ext_resource type="Texture2D" uid="uid://b8a31hvmijp7f" path="res://assets/HyperCasual Game UI/blueButton.png" id="6_v5oaj"]
+[ext_resource type="Texture2D" uid="uid://c34od8t0e1c74" path="res://assets/HyperCasual Game UI/blueRectPressed.png" id="7_ipefx"]
+[ext_resource type="Texture2D" uid="uid://wnmeshnsyeei" path="res://assets/Buttons/1.png" id="7_kgj3s"]
+[ext_resource type="Texture2D" uid="uid://hwdiw26m88as" path="res://assets/Buttons/2.png" id="8_rag6a"]
+[ext_resource type="Texture2D" uid="uid://btsknk7wtfft5" path="res://assets/Buttons/shop.png" id="9_840f4"]
+[ext_resource type="Texture2D" uid="uid://cndjoy84btyjk" path="res://assets/HyperCasual Game UI/homeBtn.png" id="10_w1pwr"]
+[ext_resource type="PackedScene" uid="uid://byfy7pw0gxug0" path="res://src/LevelSelect/LevelButton/LevelButton.tscn" id="11_ab6xi"]
+[ext_resource type="Texture2D" uid="uid://b64y3gy8qbygh" path="res://assets/HyperCasual Game UI/blueRectInactive.png" id="11_nhfrf"]
+[ext_resource type="Texture2D" uid="uid://bp2v5c45q0i55" path="res://assets/HyperCasual Game UI/blueBGpressed.png" id="11_t0ch0"]
+[ext_resource type="Texture2D" uid="uid://c0wo2b62i77ih" path="res://assets/HyperCasual Game UI/backBtn.png" id="12_05vuq"]
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_dtwy2")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3kp02")
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/Background/Menu/Logo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Logo"]
+custom_minimum_size = Vector2(652, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 72
+text = "Select a Classroom:"
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/UI/Background/Menu/Logo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 225
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/UI/Background/Menu/Logo"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Logo/Panel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Logo/Panel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CoinImg" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Logo/Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_spki7")
+
+[node name="CoinAmount" type="Label" parent="CanvasLayer/UI/Background/Menu/Logo/Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "x0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="CanvasLayer/UI/Background/Menu/Logo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="InvSep" type="HSeparator" parent="CanvasLayer/UI/Background/Menu"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="InvText" type="Label" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 72
+text = "Inventory:"
+horizontal_alignment = 1
+
+[node name="Items" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Item1" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Items"]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Background/Menu/Items/Item1" instance=ExtResource("5_juw6a")]
+layout_mode = 2
+
+[node name="Item2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Items"]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Background/Menu/Items/Item2" instance=ExtResource("5_juw6a")]
+layout_mode = 2
+slot = 1
+
+[node name="Sep" type="HSeparator" parent="CanvasLayer/UI/Background/Menu"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Panel" type="Panel" parent="CanvasLayer/UI/Background/Menu"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1080, 1383)
+layout_mode = 2
+
+[node name="Class" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_right = 480.0
+offset_bottom = 296.0
+grow_horizontal = 2
+theme_override_constants/separation = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="Class1" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class"]
+layout_mode = 2
+
+[node name="Class1Button" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1"]
+layout_mode = 2
+texture_normal = ExtResource("5_7elsl")
+texture_pressed = ExtResource("7_ipefx")
+
+[node name="Info" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -98.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Bg" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button/Info"]
+layout_mode = 2
+texture = ExtResource("6_v5oaj")
+
+[node name="Class" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button/Info/Bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_kgj3s")
+
+[node name="Desc" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button/Info"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button/Info/Desc"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "CLASSROOM 1:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Desc" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button/Info/Desc"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Company Logos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Class2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class"]
+layout_mode = 2
+
+[node name="Class2Button" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2"]
+layout_mode = 2
+texture_normal = ExtResource("5_7elsl")
+texture_pressed = ExtResource("7_ipefx")
+
+[node name="Info" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -98.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Desc" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button/Info"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button/Info/Desc"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "CLASSROOM 2:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Desc" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button/Info/Desc"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "World Flags"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bg" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button/Info"]
+layout_mode = 2
+texture = ExtResource("6_v5oaj")
+
+[node name="Class" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button/Info/Bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_rag6a")
+
+[node name="Class3" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class"]
+layout_mode = 2
+
+[node name="Class3Button" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class3"]
+layout_mode = 2
+texture_normal = ExtResource("5_7elsl")
+texture_pressed = ExtResource("7_ipefx")
+texture_disabled = ExtResource("11_nhfrf")
+
+[node name="Info" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class3/Class3Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -98.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Desc" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class3/Class3Button/Info"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class3/Class3Button/Info/Desc"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "DAILY CHALLENGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Desc" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class3/Class3Button/Info/Desc"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "New test every day with extra rewards!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Class3/Class3Button/Info/Desc"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Conecting to the server..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class"]
+layout_mode = 2
+
+[node name="ShopButton" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Shop"]
+layout_mode = 2
+texture_normal = ExtResource("4_rbwfd")
+texture_pressed = ExtResource("11_t0ch0")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Shop/ShopButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_840f4")
+
+[node name="Menu" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Class"]
+layout_mode = 2
+
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Menu"]
+layout_mode = 2
+texture_normal = ExtResource("4_rbwfd")
+texture_pressed = ExtResource("11_t0ch0")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Class/Menu/MenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_w1pwr")
+
+[node name="Lessons1" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel"]
+custom_minimum_size = Vector2(1080, 1383)
+layout_mode = 0
+offset_left = -1080.0
+offset_right = -1040.0
+offset_bottom = 40.0
+theme_override_constants/separation = 35
+
+[node name="Lesson1" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 1: Food"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson1"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson1/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson1/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson1/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson1/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test1"
+
+[node name="Lesson2" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 2: Technology"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson2"
+level = 2
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson3" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson3"
+level = 3
+
+[node name="Arrow2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons/Arrow2"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson2/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test2"
+level = 2
+
+[node name="Lesson3" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 3: Clothing"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson3"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson3/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson4"
+level = 4
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson3/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson3/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson3/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test3"
+level = 3
+
+[node name="Lesson4" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 4: Motorsport"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson5"
+level = 5
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson3" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson6"
+level = 6
+
+[node name="Arrow2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons/Arrow2"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson4/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test4"
+level = 4
+
+[node name="Lesson5" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Final Exam"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson5"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/Lesson5/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 2
+level_id = "Exam1"
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_rbwfd")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons1/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_05vuq")
+
+[node name="Lessons2" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel"]
+custom_minimum_size = Vector2(1080, 1383)
+layout_mode = 0
+offset_left = -1080.0
+offset_bottom = 1383.0
+theme_override_constants/separation = 35
+
+[node name="Lesson1" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 1: Europe"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson1"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson1/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson7"
+level = 7
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson1/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson1/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson1/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test5"
+level = 5
+
+[node name="Lesson2" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 2: Americas"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson2"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson2/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson8"
+level = 8
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson2/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson2/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson2/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test6"
+level = 6
+
+[node name="Lesson3" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 3: Asia"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson9"
+level = 9
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson3" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson10"
+level = 10
+
+[node name="Arrow2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons/Arrow2"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson3/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test7"
+level = 7
+
+[node name="Lesson4" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Subject 4: Africa"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson1" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson11"
+level = 11
+
+[node name="Arrow" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons/Arrow"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson3" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+level_id = "Lesson12"
+level = 12
+
+[node name="Arrow2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons"]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons/Arrow2"]
+layout_mode = 2
+texture = ExtResource("12_05vuq")
+flip_h = true
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson4/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 1
+level_id = "Test8"
+level = 8
+
+[node name="Lesson5" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uc720")
+theme_override_font_sizes/font_size = 48
+text = "Final Exam"
+horizontal_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson5"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Lesson2" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/Lesson5/Buttons" instance=ExtResource("11_ab6xi")]
+layout_mode = 2
+button_type = 2
+level_id = "Exam2"
+level = 2
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_rbwfd")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Panel/Lessons2/BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_05vuq")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Class/Class1/Class1Button" to="." method="_on_class_1_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Class/Class2/Class2Button" to="." method="_on_class_2_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Class/Class3/Class3Button" to="." method="_on_class_3_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Class/Shop/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Class/Menu/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Lessons1/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Panel/Lessons2/BackButton" to="." method="_on_back_button_pressed"]

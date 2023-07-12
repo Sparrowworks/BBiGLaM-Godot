@@ -1,0 +1,235 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuseyf33c6ip4"]
+
+[ext_resource type="Script" path="res://src/Settings/Settings.gd" id="1_4re42"]
+[ext_resource type="Texture2D" uid="uid://ciufwopwgucmw" path="res://assets/HyperCasual Game UI/BG.png" id="1_mb1r4"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="2_gyvjh"]
+[ext_resource type="Texture2D" uid="uid://dd7nclmfnt7p0" path="res://assets/HyperCasual Game UI/blueRectTapped.png" id="4_weshm"]
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="5_abxss"]
+[ext_resource type="Texture2D" uid="uid://cndjoy84btyjk" path="res://assets/HyperCasual Game UI/homeBtn.png" id="6_4iqu0"]
+[ext_resource type="Texture2D" uid="uid://bhnb5lvu6mlfl" path="res://assets/HyperCasual Game UI/blueButtonpressed.png" id="6_pewoq"]
+[ext_resource type="Texture2D" uid="uid://crymwhsi5yr0l" path="res://assets/HyperCasual Game UI/tickIcon.png" id="7_amyr5"]
+[ext_resource type="Texture2D" uid="uid://ds57kdc35udrm" path="res://assets/HyperCasual Game UI/closeBtn.png" id="8_nykom"]
+
+[node name="Settings" type="Node2D"]
+script = ExtResource("1_4re42")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mb1r4")
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 96
+text = "SETTINGS:"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+
+[node name="Master" type="VBoxContainer" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+
+[node name="MasterText" type="Label" parent="CanvasLayer/UI/Menu/Master"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 72
+text = "Master Volume: 100"
+horizontal_alignment = 1
+
+[node name="Slider" type="CenterContainer" parent="CanvasLayer/UI/Menu/Master"]
+layout_mode = 2
+
+[node name="MasterSlider" type="HSlider" parent="CanvasLayer/UI/Menu/Master/Slider"]
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="Music" type="VBoxContainer" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+
+[node name="MusicText" type="Label" parent="CanvasLayer/UI/Menu/Music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 72
+text = "Music Volume: 100"
+horizontal_alignment = 1
+
+[node name="Slider" type="CenterContainer" parent="CanvasLayer/UI/Menu/Music"]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/UI/Menu/Music/Slider"]
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="SFX" type="VBoxContainer" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+
+[node name="SfxText" type="Label" parent="CanvasLayer/UI/Menu/SFX"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 72
+text = "SFX Volume: 100"
+horizontal_alignment = 1
+
+[node name="Slider" type="CenterContainer" parent="CanvasLayer/UI/Menu/SFX"]
+layout_mode = 2
+
+[node name="SfxSlider" type="HSlider" parent="CanvasLayer/UI/Menu/SFX/Slider"]
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+value = 100.0
+rounded = true
+
+[node name="ResetButton" type="TextureButton" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_weshm")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Menu/ResetButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 48
+text = "Clear Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_abxss")
+texture_pressed = ExtResource("6_pewoq")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Menu/MenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_4iqu0")
+
+[node name="Warning" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+custom_minimum_size = Vector2(850, 650)
+layout_mode = 0
+offset_left = 115.0
+offset_top = 635.0
+offset_right = 965.0
+offset_bottom = 1285.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Warning"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Warning/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 96
+text = "WARNING!"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="CanvasLayer/UI/Warning/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_gyvjh")
+theme_override_font_sizes/font_size = 58
+text = "This will completely wipe out your save data. Do you want to continue?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Warning/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Yes" type="TextureButton" parent="CanvasLayer/UI/Warning/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_abxss")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Warning/VBoxContainer/Buttons/Yes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_amyr5")
+
+[node name="No" type="TextureButton" parent="CanvasLayer/UI/Warning/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_abxss")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Warning/VBoxContainer/Buttons/No"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_nykom")
+
+[connection signal="drag_ended" from="CanvasLayer/UI/Menu/Master/Slider/MasterSlider" to="." method="_on_master_slider_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Menu/Music/Slider/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Menu/SFX/Slider/SfxSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Warning/VBoxContainer/Buttons/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Warning/VBoxContainer/Buttons/No" to="." method="_on_no_pressed"]

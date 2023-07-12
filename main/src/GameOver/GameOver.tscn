@@ -1,0 +1,207 @@
+[gd_scene load_steps=13 format=3 uid="uid://chb2omrw8nooq"]
+
+[ext_resource type="Texture2D" uid="uid://ciufwopwgucmw" path="res://assets/HyperCasual Game UI/BG.png" id="1_mjjiw"]
+[ext_resource type="Script" path="res://src/GameOver/GameOver.gd" id="1_tky5v"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="2_4j01v"]
+[ext_resource type="Texture2D" uid="uid://b8a31hvmijp7f" path="res://assets/HyperCasual Game UI/blueButton.png" id="4_5sheq"]
+[ext_resource type="Texture2D" uid="uid://bhnb5lvu6mlfl" path="res://assets/HyperCasual Game UI/blueButtonpressed.png" id="5_bjrwg"]
+[ext_resource type="Texture2D" uid="uid://cdnm25ob2icp1" path="res://assets/HyperCasual Game UI/playBtn.png" id="5_qnfhi"]
+[ext_resource type="Texture2D" uid="uid://cndjoy84btyjk" path="res://assets/HyperCasual Game UI/homeBtn.png" id="6_v08wy"]
+[ext_resource type="Texture2D" uid="uid://bvam64pqmw4l4" path="res://assets/HyperCasual Game UI/restoreBtn.png" id="6_vkf1w"]
+[ext_resource type="AudioStream" uid="uid://d2kduaa74d48e" path="res://assets/music/win.mp3" id="7_o3oqb"]
+[ext_resource type="AudioStream" uid="uid://nmqgxofcmef5" path="res://assets/music/lose.mp3" id="8_iw5vi"]
+[ext_resource type="AudioStream" uid="uid://cjwsvbaix8evc" path="res://assets/sounds/baldi_win1.mp3" id="9_eryu6"]
+[ext_resource type="AudioStream" uid="uid://it85ohi3lfs4" path="res://assets/sounds/baldi_win2.mp3" id="10_ysiuv"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_tky5v")
+metadata/_edit_vertical_guides_ = [-1607.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mjjiw")
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Level" type="Label" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 96
+text = "Lesson 1: Passed!"
+horizontal_alignment = 1
+
+[node name="Quote" type="Label" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 64
+text = "\"You're my best student!\"~Baldi"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 64
+text = "Your statistics:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Passed" type="Label" parent="CanvasLayer/UI/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 64
+text = "+ Level Passed (+10 Quarters)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Correct" type="Label" parent="CanvasLayer/UI/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 64
+text = "+ 10 Correct Answers (+10 Quarters)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Wrong" type="Label" parent="CanvasLayer/UI/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 64
+text = "- 2 Wrong Answers (-2 Quarters)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Bully" type="Label" parent="CanvasLayer/UI/Menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 64
+text = "- 1 Bully Robberies (-5 Quarters)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Total" type="Label" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4j01v")
+theme_override_font_sizes/font_size = 96
+text = "Total: +18 Quarters"
+horizontal_alignment = 1
+
+[node name="Next" type="TextureButton" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_5sheq")
+texture_pressed = ExtResource("5_bjrwg")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Menu/Next"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_qnfhi")
+
+[node name="Restart" type="TextureButton" parent="CanvasLayer/UI/Menu"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_5sheq")
+texture_pressed = ExtResource("5_bjrwg")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Menu/Restart"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_vkf1w")
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_5sheq")
+texture_pressed = ExtResource("5_bjrwg")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Menu/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_v08wy")
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_o3oqb")
+bus = &"Music"
+
+[node name="BaldiWin1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_eryu6")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="BaldiWin2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ysiuv")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Lose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_iw5vi")
+bus = &"Music"
+
+[connection signal="pressed" from="CanvasLayer/UI/Menu/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Menu/Menu" to="." method="_on_menu_pressed"]

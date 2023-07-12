@@ -1,0 +1,1104 @@
+[gd_scene load_steps=52 format=3 uid="uid://c8xaogx6gb5v1"]
+
+[ext_resource type="Script" path="res://src/Game/Game.gd" id="1_6dj0d"]
+[ext_resource type="PackedScene" uid="uid://bb48282tvqybq" path="res://src/Game/Logos/Logos.tscn" id="2_e57cu"]
+[ext_resource type="AudioStream" uid="uid://dj35ijbrdgdjq" path="res://assets/sounds/sweep.mp3" id="3_dmqbh"]
+[ext_resource type="Texture2D" uid="uid://ciufwopwgucmw" path="res://assets/HyperCasual Game UI/BG.png" id="3_sqxxr"]
+[ext_resource type="AudioStream" uid="uid://bcv7knq60vpyc" path="res://assets/sounds/bell.mp3" id="3_wcvxy"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="4_v4x84"]
+[ext_resource type="AudioStream" uid="uid://r2norm2mdjf3" path="res://assets/sounds/correct.mp3" id="5_3psod"]
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="5_ou0fx"]
+[ext_resource type="AudioStream" uid="uid://dv6mjdvvqlhis" path="res://assets/sounds/wrong.mp3" id="6_ox6f2"]
+[ext_resource type="Texture2D" uid="uid://db08nafeewfjn" path="res://assets/HyperCasual Game UI/soundOnBtn.png" id="6_u6y8i"]
+[ext_resource type="Texture2D" uid="uid://dtk3aamj85cqr" path="res://assets/HyperCasual Game UI/soundOffBtn.png" id="7_41mpu"]
+[ext_resource type="Texture2D" uid="uid://bvam64pqmw4l4" path="res://assets/HyperCasual Game UI/restoreBtn.png" id="8_ix6wb"]
+[ext_resource type="Texture2D" uid="uid://bp2v5c45q0i55" path="res://assets/HyperCasual Game UI/blueBGpressed.png" id="8_w0114"]
+[ext_resource type="Texture2D" uid="uid://cndjoy84btyjk" path="res://assets/HyperCasual Game UI/homeBtn.png" id="9_krsk4"]
+[ext_resource type="PackedScene" uid="uid://bybqmn8dukx7m" path="res://src/Store/ItemSlot/ItemSlot.tscn" id="10_8kpgv"]
+[ext_resource type="Texture2D" uid="uid://dcpr5xi6b6hcm" path="res://assets/HyperCasual Game UI/blueBGbig.png" id="11_o0eu0"]
+[ext_resource type="Texture2D" uid="uid://dd7nclmfnt7p0" path="res://assets/HyperCasual Game UI/blueRectTapped.png" id="12_6rslr"]
+[ext_resource type="Texture2D" uid="uid://b0fobcipp4iod" path="res://assets/Logos/correct.png" id="12_uderc"]
+[ext_resource type="AudioStream" uid="uid://bru6g7avjfnax" path="res://assets/music/lesson.mp3" id="13_1mkkg"]
+[ext_resource type="Texture2D" uid="uid://bt7tq7icdvdvy" path="res://assets/Logos/wrong.png" id="13_oygdr"]
+[ext_resource type="Texture2D" uid="uid://i2aqqpxjlawp" path="res://assets/enemies/bully.webp" id="15_mmdwd"]
+[ext_resource type="Texture2D" uid="uid://t7eajn56jgsv" path="res://assets/enemies/baldi.png" id="15_qcgi4"]
+[ext_resource type="AudioStream" uid="uid://c5orb1tarxqr8" path="res://assets/sounds/fail.mp3" id="16_jdgy2"]
+[ext_resource type="Texture2D" uid="uid://h7bugyrjen0m" path="res://assets/enemies/Principal.webp" id="16_vjt8i"]
+[ext_resource type="AudioStream" uid="uid://bh6f7dmy48vsd" path="res://assets/sounds/end.mp3" id="17_5u7sb"]
+[ext_resource type="Texture2D" uid="uid://c3g233q2k2qr6" path="res://assets/enemies/sweep.webp" id="17_y7pyg"]
+[ext_resource type="Texture2D" uid="uid://d32sjyqwoyx6l" path="res://assets/enemies/playtime.webp" id="19_yoeb7"]
+[ext_resource type="Texture2D" uid="uid://bl5sqhac08dkn" path="res://assets/enemies/Pomp.webp" id="20_asr8l"]
+[ext_resource type="PackedScene" uid="uid://ds10s33i5fgbe" path="res://src/Game/SweepButton/SweepButton.tscn" id="20_ci3kf"]
+[ext_resource type="AudioStream" uid="uid://5i2djfr21h8c" path="res://assets/sounds/pomp_stomp.mp3" id="21_3mlf2"]
+[ext_resource type="Texture2D" uid="uid://bup1a185sbldx" path="res://assets/enemies/angry_pomp.webp" id="21_m15ye"]
+[ext_resource type="PackedScene" uid="uid://becl2rhoitv7f" path="res://src/Game/PlaytimeButton/PlaytimeButton.tscn" id="22_yexbk"]
+[ext_resource type="PackedScene" uid="uid://cwhvgnskil4ro" path="res://src/Game/PompButton/PompButton.tscn" id="25_ladqm"]
+[ext_resource type="AudioStream" uid="uid://dflgdn4iwvsql" path="res://assets/music/lesson_speed.mp3" id="30_vopsp"]
+
+[sub_resource type="Animation" id="Animation_i8fn4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hj23n"]
+resource_name = "bully"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1.56917, 0.466516, 2, 0.535886),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 1), Vector2(2, 2), Vector2(1, 2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.75), Color(1, 1, 1, 0.666667), Color(1, 1, 1, 0.75), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_asrx4"]
+resource_name = "principal"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0u0g6"]
+_data = {
+"RESET": SubResource("Animation_i8fn4"),
+"bully": SubResource("Animation_hj23n"),
+"principal": SubResource("Animation_asrx4")
+}
+
+[sub_resource type="Animation" id="Animation_n6rqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_duruh"]
+resource_name = "principal"
+length = 2.0
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.2), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dqaw"]
+_data = {
+"RESET": SubResource("Animation_n6rqa"),
+"principal": SubResource("Animation_duruh")
+}
+
+[sub_resource type="Animation" id="Animation_nxvtl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, -142.5)]
+}
+
+[sub_resource type="Animation" id="Animation_6thmc"]
+resource_name = "sweep"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(0.378929, 5.65685, 0.34151, 3.73213, 0.420448),
+"update": 0,
+"values": [Vector2(-128, -142.5), Vector2(-192, -142.5), Vector2(-128, -142.5), Vector2(-64, -142.5), Vector2(-128, -142.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxljl"]
+_data = {
+"RESET": SubResource("Animation_nxvtl"),
+"sweep": SubResource("Animation_6thmc")
+}
+
+[sub_resource type="Animation" id="Animation_4jtg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-215, -292)]
+}
+
+[sub_resource type="Animation" id="Animation_x76dq"]
+resource_name = "playtime"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(0.535887, 3.605, 1.7411),
+"update": 0,
+"values": [Vector2(-215, -211), Vector2(-215, -292), Vector2(-215, -211)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqhvl"]
+_data = {
+"RESET": SubResource("Animation_4jtg8"),
+"playtime": SubResource("Animation_x76dq")
+}
+
+[sub_resource type="Animation" id="Animation_1f877"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, -223.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Stomp:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2qk34"]
+resource_name = "pomp"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(2.46229, 3.36358, 0.183011),
+"update": 0,
+"values": [Vector2(-128, -223.5), Vector2(-128, -292), Vector2(-128, -223.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Stomp:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_7eq2q"]
+resource_name = "pomp_2"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(2.46229, 3.36358, 0.183011),
+"update": 0,
+"values": [Vector2(-128, -223.5), Vector2(-128, -292), Vector2(-128, -223.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8i0s"]
+_data = {
+"RESET": SubResource("Animation_1f877"),
+"pomp": SubResource("Animation_2qk34"),
+"pomp_2": SubResource("Animation_7eq2q")
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_6dj0d")
+
+[node name="Logos" parent="." instance=ExtResource("2_e57cu")]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Baldi" type="Node" parent="Sounds"]
+
+[node name="BaldiSound" type="AudioStreamPlayer" parent="Sounds/Baldi"]
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Bully" type="Node" parent="Sounds"]
+
+[node name="BullySound" type="AudioStreamPlayer" parent="Sounds/Bully"]
+bus = &"SFX"
+
+[node name="Principal" type="Node" parent="Sounds"]
+
+[node name="PrincipalSound" type="AudioStreamPlayer" parent="Sounds/Principal"]
+bus = &"SFX"
+
+[node name="Sweep" type="Node" parent="Sounds"]
+
+[node name="SweepSound" type="AudioStreamPlayer" parent="Sounds/Sweep"]
+stream = ExtResource("3_dmqbh")
+bus = &"SFX"
+
+[node name="Playtime" type="Node" parent="Sounds"]
+
+[node name="PlaytimeSound" type="AudioStreamPlayer" parent="Sounds/Playtime"]
+stream = ExtResource("3_dmqbh")
+bus = &"SFX"
+
+[node name="Pomp" type="Node" parent="Sounds"]
+
+[node name="PompSound" type="AudioStreamPlayer" parent="Sounds/Pomp"]
+stream = ExtResource("3_dmqbh")
+bus = &"SFX"
+
+[node name="Bell" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("3_wcvxy")
+bus = &"SFX"
+
+[node name="Correct" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("5_3psod")
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="Wrong" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("6_ox6f2")
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sqxxr")
+
+[node name="Game" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/Game"]
+layout_mode = 2
+
+[node name="TopBar" type="HSplitContainer" parent="CanvasLayer/UI/Game"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="Text" type="HBoxContainer" parent="CanvasLayer/UI/Game/TopBar"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/Game/TopBar/Text"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/UI/Game/TopBar/Text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 96
+text = "Lesson 1:"
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Game/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 2
+
+[node name="MusicButton" type="TextureButton" parent="CanvasLayer/UI/Game/TopBar/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("5_ou0fx")
+texture_pressed = ExtResource("8_w0114")
+
+[node name="Play" type="TextureRect" parent="CanvasLayer/UI/Game/TopBar/Buttons/MusicButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_u6y8i")
+
+[node name="Stop" type="TextureRect" parent="CanvasLayer/UI/Game/TopBar/Buttons/MusicButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_41mpu")
+
+[node name="ResetButton" type="TextureButton" parent="CanvasLayer/UI/Game/TopBar/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("5_ou0fx")
+texture_pressed = ExtResource("8_w0114")
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/UI/Game/TopBar/Buttons/ResetButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ix6wb")
+
+[node name="Pause" type="TextureButton" parent="CanvasLayer/UI/Game/TopBar/Buttons"]
+layout_mode = 2
+texture_normal = ExtResource("5_ou0fx")
+texture_pressed = ExtResource("8_w0114")
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/UI/Game/TopBar/Buttons/Pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_krsk4")
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/Game/TopBar/Buttons"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Amount" type="Label" parent="CanvasLayer/UI/Game"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 92
+text = "Question: 1/25:"
+horizontal_alignment = 1
+
+[node name="Mistakes" type="Label" parent="CanvasLayer/UI/Game"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.823529, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 48
+text = "Wrong answers: 0/3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LogoPanel" type="HBoxContainer" parent="CanvasLayer/UI/Game"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Item1Container" type="CenterContainer" parent="CanvasLayer/UI/Game/LogoPanel"]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Game/LogoPanel/Item1Container" instance=ExtResource("10_8kpgv")]
+layout_mode = 2
+
+[node name="LogoBG" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel"]
+layout_mode = 2
+texture = ExtResource("11_o0eu0")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="Correct" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("12_uderc")
+
+[node name="Wrong" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_oygdr")
+
+[node name="Bully" type="Control" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+layout_mode = 2
+
+[node name="Bully" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Bully"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -142.5
+offset_right = 113.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(113, 142.5)
+texture = ExtResource("15_mmdwd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Bully/Bully"]
+libraries = {
+"": SubResource("AnimationLibrary_0u0g6")
+}
+
+[node name="Principal" type="Control" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+layout_mode = 2
+
+[node name="Principal" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Principal"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -142.5
+offset_right = 113.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_vjt8i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Principal/Principal"]
+libraries = {
+"": SubResource("AnimationLibrary_2dqaw")
+}
+
+[node name="Sweep" type="Control" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+layout_mode = 2
+
+[node name="Sweep" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Sweep"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -142.5
+offset_right = 128.0
+offset_bottom = 142.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_y7pyg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Sweep/Sweep"]
+libraries = {
+"": SubResource("AnimationLibrary_qxljl")
+}
+
+[node name="Playtime" type="Control" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+layout_mode = 2
+
+[node name="Playtime" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Playtime"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -292.0
+offset_right = 215.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_yoeb7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Playtime/Playtime"]
+libraries = {
+"": SubResource("AnimationLibrary_tqhvl")
+}
+
+[node name="Pomp" type="Control" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer"]
+layout_mode = 2
+
+[node name="Pomp" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Pomp"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -223.5
+offset_right = 128.0
+offset_bottom = 223.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_asr8l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Pomp/Pomp"]
+libraries = {
+"": SubResource("AnimationLibrary_b8i0s")
+}
+
+[node name="AngryPomp" type="TextureRect" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Pomp"]
+visible = false
+z_index = 50
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1279.0
+offset_top = -1242.0
+offset_right = -1023.0
+offset_bottom = -986.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+texture = ExtResource("21_m15ye")
+
+[node name="Stomp" type="AudioStreamPlayer" parent="CanvasLayer/UI/Game/LogoPanel/LogoBG/CenterContainer/Pomp"]
+stream = ExtResource("21_3mlf2")
+volume_db = -5.0
+bus = &"SFX"
+
+[node name="Item2Container" type="CenterContainer" parent="CanvasLayer/UI/Game/LogoPanel"]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Game/LogoPanel/Item2Container" instance=ExtResource("10_8kpgv")]
+layout_mode = 2
+slot = 1
+
+[node name="Time" type="Label" parent="CanvasLayer/UI/Game"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 72
+text = "Time: 0"
+horizontal_alignment = 1
+
+[node name="AnnoucementLabel" type="Label" parent="CanvasLayer/UI/Game/Time"]
+visible = false
+z_index = 99
+layout_mode = 2
+offset_top = -700.0
+offset_right = 1080.0
+offset_bottom = -581.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 64
+text = "You have escaped the Detention!"
+horizontal_alignment = 1
+
+[node name="Submit" type="TextureButton" parent="CanvasLayer/UI/Game"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("12_6rslr")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Game/Submit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 72
+text = "CHECK"
+horizontal_alignment = 1
+
+[node name="FieldZone" type="GridContainer" parent="CanvasLayer/UI/Game"]
+custom_minimum_size = Vector2(1080, 277)
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 10
+
+[node name="LetterZone" type="GridContainer" parent="CanvasLayer/UI/Game"]
+custom_minimum_size = Vector2(1080, 277)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 5
+columns = 9
+
+[node name="FakeLetters" type="Panel" parent="CanvasLayer/UI"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SweepPanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SweepButton" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton2" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton3" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton4" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton5" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton6" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton7" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton8" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton9" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="SweepButton10" parent="CanvasLayer/UI/SweepPanel" instance=ExtResource("20_ci3kf")]
+layout_mode = 0
+
+[node name="PlaytimePanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlaytimeButton" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+
+[node name="PlaytimeButton2" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 2
+
+[node name="PlaytimeButton3" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 3
+
+[node name="PlaytimeButton4" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 4
+
+[node name="PlaytimeButton5" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 5
+
+[node name="PlaytimeButton6" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 6
+
+[node name="PlaytimeButton7" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 7
+
+[node name="PlaytimeButton8" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 8
+
+[node name="PlaytimeButton9" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 9
+
+[node name="PlaytimeButton10" parent="CanvasLayer/UI/PlaytimePanel" instance=ExtResource("22_yexbk")]
+layout_mode = 0
+num = 10
+
+[node name="PompPanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/PompPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 390.0
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="PompButton" parent="CanvasLayer/UI/PompPanel/HBoxContainer" instance=ExtResource("25_ladqm")]
+layout_mode = 2
+
+[node name="PompButton2" parent="CanvasLayer/UI/PompPanel/HBoxContainer" instance=ExtResource("25_ladqm")]
+layout_mode = 2
+
+[node name="PompButton3" parent="CanvasLayer/UI/PompPanel/HBoxContainer" instance=ExtResource("25_ladqm")]
+layout_mode = 2
+
+[node name="PompButton4" parent="CanvasLayer/UI/PompPanel/HBoxContainer" instance=ExtResource("25_ladqm")]
+layout_mode = 2
+
+[node name="Pause" type="PanelContainer" parent="CanvasLayer/UI"]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(750, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -350.0
+offset_right = 375.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Pause"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/Pause/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Pause/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 96
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/UI/Pause/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Resume" type="TextureButton" parent="CanvasLayer/UI/Pause/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("12_6rslr")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Pause/VBoxContainer/Resume"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 72
+text = "Resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="TextureButton" parent="CanvasLayer/UI/Pause/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("12_6rslr")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Pause/VBoxContainer/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 72
+text = "Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnemyMsg" type="PanelContainer" parent="CanvasLayer/UI"]
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -2040.0
+offset_right = 375.0
+offset_bottom = -1540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/EnemyMsg"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/EnemyMsg/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 72
+text = "Oh no! The principal!"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="CanvasLayer/UI/EnemyMsg/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 48
+text = "You have to give him an item or cash... Unless you want to wait for him to get bored."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="OK" type="TextureButton" parent="CanvasLayer/UI/EnemyMsg/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_ou0fx")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/EnemyMsg/VBoxContainer/OK"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v4x84")
+theme_override_font_sizes/font_size = 72
+text = "OK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Jumpscare" type="TextureRect" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_qcgi4")
+
+[node name="Test" type="Timer" parent="."]
+
+[node name="Reset" type="Timer" parent="."]
+one_shot = true
+
+[node name="FailReset" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="BullyTimer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="PrincipalTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="DetentionTimer" type="Timer" parent="."]
+
+[node name="GameTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_1mkkg")
+bus = &"Music"
+
+[node name="GameTheme2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_vopsp")
+bus = &"Music"
+
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_5u7sb")
+bus = &"Music"
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_jdgy2")
+bus = &"SFX"
+
+[connection signal="pressed" from="CanvasLayer/UI/Game/TopBar/Buttons/MusicButton" to="." method="_on_music_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/UI/Game/TopBar/Buttons/ResetButton" to="." method="_on_reset_button_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/Game/TopBar/Buttons/ResetButton" to="." method="_on_reset_button_button_up"]
+[connection signal="pressed" from="CanvasLayer/UI/Game/TopBar/Buttons/Pause" to="." method="_on_pause_pressed"]
+[connection signal="slot_pressed" from="CanvasLayer/UI/Game/LogoPanel/Item1Container/ItemSlot" to="." method="_on_item_slot_slot_pressed"]
+[connection signal="slot_pressed" from="CanvasLayer/UI/Game/LogoPanel/Item2Container/ItemSlot" to="." method="_on_item_slot_slot_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Game/Submit" to="." method="_on_submit_pressed"]
+[connection signal="sort_children" from="CanvasLayer/UI/Game/FieldZone" to="." method="_on_field_zone_sort_children"]
+[connection signal="sort_children" from="CanvasLayer/UI/Game/LetterZone" to="." method="_on_letter_zone_sort_children"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton2" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton3" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton4" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton5" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton6" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton7" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton8" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton9" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="trash_pressed" from="CanvasLayer/UI/SweepPanel/SweepButton10" to="." method="_on_sweep_button_trash_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton2" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton3" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton4" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton5" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton6" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton7" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton8" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton9" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="playtime_pressed" from="CanvasLayer/UI/PlaytimePanel/PlaytimeButton10" to="." method="_on_playtime_button_playtime_pressed"]
+[connection signal="pomp_pressed" from="CanvasLayer/UI/PompPanel/HBoxContainer/PompButton" to="." method="_on_pomp_button_pressed"]
+[connection signal="pomp_pressed" from="CanvasLayer/UI/PompPanel/HBoxContainer/PompButton2" to="." method="_on_pomp_button_pressed"]
+[connection signal="pomp_pressed" from="CanvasLayer/UI/PompPanel/HBoxContainer/PompButton3" to="." method="_on_pomp_button_pressed"]
+[connection signal="pomp_pressed" from="CanvasLayer/UI/PompPanel/HBoxContainer/PompButton4" to="." method="_on_pomp_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Pause/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Pause/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/EnemyMsg/VBoxContainer/OK" to="." method="_on_ok_pressed"]
+[connection signal="timeout" from="Test" to="." method="_on_test_timeout"]
+[connection signal="timeout" from="Reset" to="." method="_on_reset_timeout"]
+[connection signal="timeout" from="FailReset" to="." method="_on_fail_reset_timeout"]
+[connection signal="timeout" from="BullyTimer" to="." method="_on_bully_timer_timeout"]
+[connection signal="timeout" from="PrincipalTimer" to="." method="_on_principal_timer_timeout"]
+[connection signal="timeout" from="DetentionTimer" to="." method="_on_detention_timer_timeout"]

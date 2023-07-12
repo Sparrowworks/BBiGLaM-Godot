@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb48282tvqybq"]
+
+[ext_resource type="Script" path="res://src/Game/Logos/Logos.gd" id="1_lu1of"]
+
+[node name="Logos" type="Node"]
+script = ExtResource("1_lu1of")

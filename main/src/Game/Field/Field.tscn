@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbaupdcrjky6"]
+
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="1_dmfm6"]
+[ext_resource type="Texture2D" uid="uid://dwotoawogt520" path="res://assets/HyperCasual Game UI/blueBtnNormal.png" id="1_jm0lq"]
+[ext_resource type="Texture2D" uid="uid://djwy8bmmseavi" path="res://assets/HyperCasual Game UI/blueBtnTapped.png" id="2_xia3x"]
+[ext_resource type="Script" path="res://src/Game/Field/Field.gd" id="3_dl5f1"]
+
+[node name="Field" type="TextureButton"]
+texture_normal = ExtResource("1_jm0lq")
+texture_pressed = ExtResource("2_xia3x")
+script = ExtResource("3_dl5f1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Letter" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dmfm6")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

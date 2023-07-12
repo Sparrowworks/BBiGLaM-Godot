@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bybqmn8dukx7m"]
+
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="1_wtvst"]
+[ext_resource type="Script" path="res://src/Store/ItemSlot/ItemSlot.gd" id="2_dvl34"]
+[ext_resource type="Texture2D" uid="uid://bp2v5c45q0i55" path="res://assets/HyperCasual Game UI/blueBGpressed.png" id="2_mge83"]
+
+[node name="ItemSlot" type="TextureButton"]
+texture_normal = ExtResource("1_wtvst")
+texture_pressed = ExtResource("2_mge83")
+script = ExtResource("2_dvl34")
+
+[node name="Item" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

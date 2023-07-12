@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccw0gaatxf541"]
+
+[ext_resource type="AudioStream" uid="uid://baf17qwi6c5jp" path="res://assets/music/open.mp3" id="1_72tjo"]
+[ext_resource type="Script" path="res://src/Main/Main.gd" id="1_cp00q"]
+[ext_resource type="AudioStream" uid="uid://6ydxuf3y6gyg" path="res://assets/music/store.mp3" id="2_g8qle"]
+[ext_resource type="AudioStream" uid="uid://cryd7cbkscpoi" path="res://assets/music/credits.mp3" id="3_khsji"]
+[ext_resource type="AudioStream" uid="uid://dv6fnna2b1p0v" path="res://assets/sounds/baldi_opening.mp3" id="3_pu7dh"]
+[ext_resource type="AudioStream" uid="uid://dakluj0y2ryq6" path="res://assets/sounds/button_click.mp3" id="4_mecay"]
+[ext_resource type="AudioStream" uid="uid://dol837tv58jgx" path="res://assets/sounds/sell1.mp3" id="5_lldx8"]
+[ext_resource type="AudioStream" uid="uid://cunuta3ssf0i5" path="res://assets/sounds/sell2.mp3" id="6_d1srr"]
+[ext_resource type="AudioStream" uid="uid://boqktwqr5keld" path="res://assets/sounds/smallclick.mp3" id="7_c5dim"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_cp00q")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="TransitionUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer/TransitionUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Opening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_72tjo")
+bus = &"Music"
+
+[node name="Baldi" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pu7dh")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g8qle")
+bus = &"Music"
+
+[node name="Credits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_khsji")
+bus = &"Music"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_mecay")
+bus = &"SFX"
+
+[node name="SmallClick" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_c5dim")
+bus = &"SFX"
+
+[node name="Sell1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_lldx8")
+bus = &"SFX"
+
+[node name="Sell2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_d1srr")
+bus = &"SFX"
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_time_request_request_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

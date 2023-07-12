@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://bksjv102sp5ti"]
+
+[ext_resource type="Texture2D" uid="uid://ciufwopwgucmw" path="res://assets/HyperCasual Game UI/BG.png" id="1_b66ue"]
+[ext_resource type="Script" path="res://src/Credits/Credits.gd" id="1_u48so"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="2_2uodw"]
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="4_r6s3r"]
+[ext_resource type="Texture2D" uid="uid://cndjoy84btyjk" path="res://assets/HyperCasual Game UI/homeBtn.png" id="5_6ooup"]
+[ext_resource type="Texture2D" uid="uid://bhnb5lvu6mlfl" path="res://assets/HyperCasual Game UI/blueButtonpressed.png" id="5_n0v22"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_u48so")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_b66ue")
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2uodw")
+theme_override_font_sizes/font_size = 96
+text = "Credits:"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/UI/Menu"]
+custom_minimum_size = Vector2(0, 1250)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_2uodw")
+theme_override_fonts/bold_font = ExtResource("2_2uodw")
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 72
+bbcode_enabled = true
+text = "[center]Baldi's Basics in Guessing Logos and More!
+
+[b]How to play?[/b]
+
+To get started, click on the Play button in the Main Menu. Then, select a Class or a Random Challenge. A Class represents the questions category. Inside a class, you have levels divided into:
+
+* Lessons (Blue Button) - where you cannot fail and you focus on learning every question
+that might appear in a test. No enemies appear here and you cannot use your items.
+
+* Test (Yellow Button) - where you get a few random questions and must answer them correctly.
+Enemies can appear and you are able to use your items here.
+
+* Exam (Green Button) - at the end of each Class, there is an Exam, featuring every question from
+every lesson in that Class. Other Test rules apply here as well.
+
+[b]Credits:[/b]
+
+Developed by: 
+[b]Sparrowworks[/b]
+
+Coded by: 
+[b]SP4R0W[/b]
+
+Game designer: 
+[b]SP4R0W	[/b]
+
+Tester: 
+[b]Varga[/b]
+
+Game idea based on Baldi's Basics in Education and Learning by Basically Games.
+
+Assets used:
+Baldi's Basics Plus assets
+HyperCasual Game UI
+PostenOne font
+[/center]"
+
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer/UI/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_r6s3r")
+texture_pressed = ExtResource("5_n0v22")
+
+[node name="Img" type="TextureRect" parent="CanvasLayer/UI/Menu/MenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_6ooup")
+
+[connection signal="pressed" from="CanvasLayer/UI/Menu/MenuButton" to="." method="_on_menu_button_pressed"]

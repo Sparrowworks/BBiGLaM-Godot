@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://ummh3elhw7g6"]
+
+[ext_resource type="Texture2D" uid="uid://bwjen8gnjycs" path="res://assets/HyperCasual Game UI/blueRectNormal.png" id="1_p52fb"]
+[ext_resource type="Script" path="res://src/Store/StoreButton/StoreButton.gd" id="2_dix67"]
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="2_ohgti"]
+[ext_resource type="Texture2D" uid="uid://hg67822frruv" path="res://assets/Items/bar.webp" id="3_3y1ud"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="4_ds4en"]
+
+[node name="StoreButton" type="TextureButton"]
+texture_normal = ExtResource("1_p52fb")
+script = ExtResource("2_dix67")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(960, 218)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -109.0
+offset_right = 480.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Image" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Frame" type="TextureRect" parent="HBoxContainer/Image"]
+layout_mode = 2
+texture = ExtResource("2_ohgti")
+
+[node name="Item" type="TextureRect" parent="HBoxContainer/Image/Frame"]
+z_index = 99
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3y1ud")
+
+[node name="Text" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(444, 218)
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="HBoxContainer/Text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ds4en")
+theme_override_font_sizes/font_size = 48
+text = "Zesty Bar"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="HBoxContainer/Text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ds4en")
+theme_override_font_sizes/font_size = 48
+text = "Get rid of the Bully!"
+horizontal_alignment = 1
+
+[node name="Price" type="Label" parent="HBoxContainer/Text"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ds4en")
+theme_override_font_sizes/font_size = 48
+text = "Price: 5 Quarters"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

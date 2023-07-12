@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://byfy7pw0gxug0"]
+
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="1_vkb24"]
+[ext_resource type="Script" path="res://src/LevelSelect/LevelButton/LevelButton.gd" id="2_ouml5"]
+[ext_resource type="Texture2D" uid="uid://rwjg5g71q71v" path="res://assets/HyperCasual Game UI/playBtnSmall.png" id="2_pjsnt"]
+[ext_resource type="Texture2D" uid="uid://ckcy860js8k2n" path="res://assets/HyperCasual Game UI/lockIcon.png" id="3_3eywq"]
+
+[node name="LevelButton" type="TextureButton"]
+texture_normal = ExtResource("1_vkb24")
+script = ExtResource("2_ouml5")
+
+[node name="Play" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pjsnt")
+
+[node name="Locked" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3eywq")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

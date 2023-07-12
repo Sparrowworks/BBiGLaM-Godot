@@ -1,0 +1,290 @@
+[gd_scene load_steps=13 format=3 uid="uid://gjd0h5ybc3cr"]
+
+[ext_resource type="Texture2D" uid="uid://ciufwopwgucmw" path="res://assets/HyperCasual Game UI/BG.png" id="1_ibqvd"]
+[ext_resource type="Script" path="res://src/Store/Store.gd" id="1_tuwxe"]
+[ext_resource type="FontFile" uid="uid://cblnp2vej08tg" path="res://assets/Font/PoetsenOne-Regular.otf" id="2_in50u"]
+[ext_resource type="Texture2D" uid="uid://y33cje4ffsjy" path="res://assets/Items/QuarterIcon_Large.webp" id="3_6cjge"]
+[ext_resource type="Texture2D" uid="uid://bpwm0vidbi1s2" path="res://assets/HyperCasual Game UI/blueBG.png" id="4_esmu5"]
+[ext_resource type="PackedScene" uid="uid://bybqmn8dukx7m" path="res://src/Store/ItemSlot/ItemSlot.tscn" id="5_v2rpm"]
+[ext_resource type="PackedScene" uid="uid://ummh3elhw7g6" path="res://src/Store/StoreButton/StoreButton.tscn" id="6_xtshh"]
+[ext_resource type="Texture2D" uid="uid://cndjoy84btyjk" path="res://assets/HyperCasual Game UI/homeBtn.png" id="8_d3bo1"]
+[ext_resource type="Texture2D" uid="uid://bp2v5c45q0i55" path="res://assets/HyperCasual Game UI/blueBGpressed.png" id="8_hc828"]
+[ext_resource type="Texture2D" uid="uid://c0wo2b62i77ih" path="res://assets/HyperCasual Game UI/backBtn.png" id="8_s1nsx"]
+[ext_resource type="AudioStream" uid="uid://da0nwi0p0ndem" path="res://assets/sounds/buy.mp3" id="17_gt28f"]
+[ext_resource type="AudioStream" uid="uid://c5orb1tarxqr8" path="res://assets/sounds/fail.mp3" id="18_2srmd"]
+
+[node name="Store" type="Node2D"]
+script = ExtResource("1_tuwxe")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ibqvd")
+
+[node name="Menu" type="VBoxContainer" parent="CanvasLayer/UI/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Logo" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/UI/Background/Menu/Logo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="CanvasLayer/UI/Background/Menu/Logo"]
+custom_minimum_size = Vector2(652, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_in50u")
+theme_override_font_sizes/font_size = 72
+text = "Johnny's Store:"
+
+[node name="VSeparator2" type="VSeparator" parent="CanvasLayer/UI/Background/Menu/Logo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 225
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/UI/Background/Menu/Logo"]
+custom_minimum_size = Vector2(175, 70)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Logo/Panel"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu/Logo/Panel/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CoinImg" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Logo/Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_6cjge")
+
+[node name="CoinAmount" type="Label" parent="CanvasLayer/UI/Background/Menu/Logo/Panel/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_in50u")
+theme_override_font_sizes/font_size = 48
+text = "x0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator3" type="VSeparator" parent="CanvasLayer/UI/Background/Menu/Logo"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Inventory" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Item1" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Inventory"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/UI/Background/Menu/Inventory/Item1"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_in50u")
+theme_override_font_sizes/font_size = 48
+text = "Item 1:"
+horizontal_alignment = 1
+
+[node name="Item1" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Inventory/Item1"]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Background/Menu/Inventory/Item1/Item1" instance=ExtResource("5_v2rpm")]
+layout_mode = 2
+
+[node name="Item2" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Inventory"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/UI/Background/Menu/Inventory/Item2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_in50u")
+theme_override_font_sizes/font_size = 48
+text = "Item 2:"
+horizontal_alignment = 1
+
+[node name="Item2" type="CenterContainer" parent="CanvasLayer/UI/Background/Menu/Inventory/Item2"]
+layout_mode = 2
+
+[node name="ItemSlot" parent="CanvasLayer/UI/Background/Menu/Inventory/Item2/Item2" instance=ExtResource("5_v2rpm")]
+layout_mode = 2
+slot = 1
+
+[node name="Items" type="Panel" parent="CanvasLayer/UI/Background/Menu"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1088, 984)
+layout_mode = 2
+
+[node name="Items1" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="StoreButton" parent="CanvasLayer/UI/Background/Menu/Items/Items1" instance=ExtResource("6_xtshh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+type = "Sheet"
+
+[node name="StoreButton2" parent="CanvasLayer/UI/Background/Menu/Items/Items1" instance=ExtResource("6_xtshh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+reverse_placement = true
+type = "Apple"
+
+[node name="StoreButton3" parent="CanvasLayer/UI/Background/Menu/Items/Items1" instance=ExtResource("6_xtshh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+type = "Clock"
+
+[node name="Items2" type="VBoxContainer" parent="CanvasLayer/UI/Background/Menu/Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1080.0
+offset_top = -2.0
+offset_right = 1080.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="StoreButton" parent="CanvasLayer/UI/Background/Menu/Items/Items2" instance=ExtResource("6_xtshh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StoreButton2" parent="CanvasLayer/UI/Background/Menu/Items/Items2" instance=ExtResource("6_xtshh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+reverse_placement = true
+type = "Scissors"
+
+[node name="StoreButton3" parent="CanvasLayer/UI/Background/Menu/Items/Items2" instance=ExtResource("6_xtshh")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+type = "Keys"
+
+[node name="Help" type="Label" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_in50u")
+theme_override_font_sizes/font_size = 48
+text = "To buy an item, drag it on an Inventory slot. Tapping on a non-empty slot will remove the item."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/UI/Background/Menu"]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="PageButton" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_esmu5")
+texture_pressed = ExtResource("8_hc828")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Buttons/PageButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_s1nsx")
+flip_h = true
+
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer/UI/Background/Menu/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_esmu5")
+texture_pressed = ExtResource("8_hc828")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Background/Menu/Buttons/MenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00976681
+texture = ExtResource("8_d3bo1")
+
+[node name="Johnny" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="Buy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_gt28f")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_2srmd")
+volume_db = 5.0
+bus = &"SFX"
+
+[connection signal="slot_activated" from="CanvasLayer/UI/Background/Menu/Inventory/Item1/Item1/ItemSlot" to="." method="_on_item_slot_slot_activated"]
+[connection signal="slot_deactivated" from="CanvasLayer/UI/Background/Menu/Inventory/Item1/Item1/ItemSlot" to="." method="_on_item_slot_slot_deactivated"]
+[connection signal="slot_pressed" from="CanvasLayer/UI/Background/Menu/Inventory/Item1/Item1/ItemSlot" to="." method="_on_item_slot_slot_pressed"]
+[connection signal="slot_activated" from="CanvasLayer/UI/Background/Menu/Inventory/Item2/Item2/ItemSlot" to="." method="_on_item_slot_slot_activated"]
+[connection signal="slot_deactivated" from="CanvasLayer/UI/Background/Menu/Inventory/Item2/Item2/ItemSlot" to="." method="_on_item_slot_slot_deactivated"]
+[connection signal="slot_pressed" from="CanvasLayer/UI/Background/Menu/Inventory/Item2/Item2/ItemSlot" to="." method="_on_item_slot_slot_pressed"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Background/Menu/Items/Items1/StoreButton" to="." method="_on_store_button_drag_ended"]
+[connection signal="drag_started" from="CanvasLayer/UI/Background/Menu/Items/Items1/StoreButton" to="." method="_on_store_button_drag_started"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Background/Menu/Items/Items1/StoreButton2" to="." method="_on_store_button_drag_ended"]
+[connection signal="drag_started" from="CanvasLayer/UI/Background/Menu/Items/Items1/StoreButton2" to="." method="_on_store_button_drag_started"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Background/Menu/Items/Items1/StoreButton3" to="." method="_on_store_button_drag_ended"]
+[connection signal="drag_started" from="CanvasLayer/UI/Background/Menu/Items/Items1/StoreButton3" to="." method="_on_store_button_drag_started"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Background/Menu/Items/Items2/StoreButton" to="." method="_on_store_button_drag_ended"]
+[connection signal="drag_started" from="CanvasLayer/UI/Background/Menu/Items/Items2/StoreButton" to="." method="_on_store_button_drag_started"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Background/Menu/Items/Items2/StoreButton2" to="." method="_on_store_button_drag_ended"]
+[connection signal="drag_started" from="CanvasLayer/UI/Background/Menu/Items/Items2/StoreButton2" to="." method="_on_store_button_drag_started"]
+[connection signal="drag_ended" from="CanvasLayer/UI/Background/Menu/Items/Items2/StoreButton3" to="." method="_on_store_button_drag_ended"]
+[connection signal="drag_started" from="CanvasLayer/UI/Background/Menu/Items/Items2/StoreButton3" to="." method="_on_store_button_drag_started"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Buttons/PageButton" to="." method="_on_page_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Background/Menu/Buttons/MenuButton" to="." method="_on_menu_button_pressed"]

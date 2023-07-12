@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4r73p1bk2xqg"]
+
+[ext_resource type="PackedScene" uid="uid://c2nj8sct3i4vu" path="res://src/Game/LetterButton/LetterButton.tscn" id="1_gwxfo"]
+[ext_resource type="Script" path="res://src/Game/FakeLetter/FakeLetter.gd" id="2_cppjx"]
+
+[node name="FakeLetter" instance=ExtResource("1_gwxfo")]
+script = ExtResource("2_cppjx")
+pressable = false

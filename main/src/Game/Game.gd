@@ -225,14 +225,14 @@ func setup_game():
 
 	match game_type:
 		1:
-			game_title.text = "Lesson: " + str(Globals.level)
+			game_title.text = "Lesson " + str(Globals.level)
 			time_text.hide()
 		2:
-			game_title.text = "Test: " + str(Globals.level)
+			game_title.text = "Test " + str(Globals.level)
 			time_text.show()
 			set_test_timer()
 		3:
-			game_title.text = "Exam: " + str(Globals.level)
+			game_title.text = "Exam " + str(Globals.level)
 			time_text.show()
 			set_test_timer()
 		4:

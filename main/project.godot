@@ -3,7 +3,7 @@ config_version=5
 [application]
 
 config/name="BBiGLaM-GDScript"
-config/tags=PackedStringArray()
+config/tags=PackedStringArray("gdscript", "mobile")
 run/main_scene="res://src/Main/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 run/max_fps=60
